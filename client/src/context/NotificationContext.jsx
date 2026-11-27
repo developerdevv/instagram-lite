@@ -6,7 +6,7 @@ import { useAuth } from "./AuthContext";
 const NotificationContext = createContext(null);
 
 const SOCKET_URL = (
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api"
+  import.meta.env.VITE_API_BASE_URL || "https://instagram-lite-xbik.onrender.com/api"
 ).replace(/\/api\/?$/, "");
 
 export function NotificationProvider({ children }) {

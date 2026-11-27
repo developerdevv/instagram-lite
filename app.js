@@ -23,7 +23,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
-app.use("/api/feed",feedRoutes);
+app.use("/api/feed", feedRoutes);
 app.use("/api/posts", commentRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/users", followRoutes);
@@ -32,11 +32,7 @@ app.use("/api/reports", reportRoutes);
 app.use("/api/weather", weatherRoutes);
 app.use("/api/bug-reports", bugReportRoutes);
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "Instagram Lite API is running"
-  });
-});
+app.use("/", express.static(path.join(__dirname, "dist")));
 
 app.use(errorHandler);
 
