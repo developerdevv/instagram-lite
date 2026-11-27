@@ -7,7 +7,7 @@ const connectDB = require("./db");
 const initSocket = require("./socket");
 const logger = require("./utils/logger");
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 async function startServer() {
   await connectDB();
@@ -16,7 +16,7 @@ async function startServer() {
 
   app.set("io", initSocket(httpServer));
 
-  httpServer.listen(PORT, () => {
+  httpServer.listen(PORT, "0.0.0.0", () => {
     logger.info(`Server running on port ${PORT}`);
   });
 }
